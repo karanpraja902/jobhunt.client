@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Navbar from './shared/Navbar'
 import Job from './Job';
 import SafeImage from './ui/safe-image';
+import SafeImageCORS from './ui/safe-image-cors';
 import { useDispatch, useSelector } from 'react-redux';
 import { setSearchedQuery } from '@/redux/jobSlice';
 import axios from 'axios';
@@ -20,7 +21,7 @@ const BrowseMixed = () => {
         const fetchJobs = async () => {
             try {
                 setLoading(true);
-                const response = await axios.get(`http://localhost:5000/api/v1/mixed-jobs/mixed`, {
+                const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/mixed-jobs/mixed`, {
                     params: {
                         keyword: searchedQuery || '',
                         source: 'all',
@@ -58,12 +59,14 @@ const BrowseMixed = () => {
             
             <div className='flex items-center gap-2 my-2'>
                 <div className='p-2 border rounded'>
-                    <SafeImage
+                    <SafeImageCORS
                         src={job.company?.logo}
                         alt={job.company?.name}
                         className='h-8 w-8 object-contain'
                         iconClassName='h-8 w-8 text-gray-400'
-                        fallback='icon'
+                        fallback='initial'
+                        fallbackText={job.company?.name || 'Company'}
+                        useProxy={true}
                     />
                 </div>
                 <div>

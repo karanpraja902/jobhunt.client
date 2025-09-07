@@ -6,7 +6,7 @@ import { Button } from './ui/button'
 import { Loader2 } from 'lucide-react'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
-import { VITE_API_BASE_URL } from '@/utils/constant'
+
 
 import { setUser } from '@/redux/authSlice'
 import { toast } from 'sonner'
@@ -47,7 +47,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
         }
         try {
             setLoading(true);
-            const res = await axios.post(`${VITE_API_BASE_URL}/user/profile/update`, formData, {
+            const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/user/profile/update`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 },

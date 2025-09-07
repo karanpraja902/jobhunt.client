@@ -1,7 +1,7 @@
 import { setAllAdminJobs } from '@/redux/jobSlice'
 
 import axios from 'axios'
-import { VITE_API_BASE_URL } from '@/utils/constant'
+
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
@@ -10,7 +10,7 @@ const useGetAllAdminJobs = () => {
     useEffect(()=>{
         const fetchAllAdminJobs = async () => {
             try {
-                const res = await axios.get(`${VITE_API_BASE_URL}/job/getadminjobs`,{withCredentials:true});
+                const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/job/getadminjobs`,{withCredentials:true});
                 if(res.data.success){
                     dispatch(setAllAdminJobs(res.data.jobs));
                 }

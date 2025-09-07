@@ -1,5 +1,5 @@
 import { setCompanies} from '@/redux/companySlice'
-import { VITE_API_BASE_URL } from '@/utils/constant'
+
 import axios from 'axios'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
@@ -9,7 +9,7 @@ const useGetAllCompanies = () => {
     useEffect(()=>{
         const fetchCompanies = async () => {
             try {
-                const res = await axios.get(`${VITE_API_BASE_URL}/company/get`,{withCredentials:true});
+                const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/company/get`,{withCredentials:true});
                 console.log('called');
                 if(res.data.success){
                     dispatch(setCompanies(res.data.companies));

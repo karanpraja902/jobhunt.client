@@ -45,7 +45,7 @@ const MixedJobs = () => {
     // Debounced search
     const [searchTimeout, setSearchTimeout] = useState(null);
 
-    const MIXED_JOBS_API = 'http://localhost:5000/api/v1/mixed-jobs';
+    const MIXED_JOBS_API = `${import.meta.env.VITE_API_BASE_URL}/mixed-jobs`;
 
     // Fetch mixed jobs
     const fetchMixedJobs = async (resetPage = false) => {
