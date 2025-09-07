@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-const EXTERNAL_JOBS_API = 'http://localhost:5000/api/v1/external-jobs';
+
 
 const useGetExternalJobs = (type = 'trending') => {
     const [externalJobs, setExternalJobs] = useState([]);

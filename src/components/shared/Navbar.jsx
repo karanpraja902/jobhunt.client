@@ -6,7 +6,6 @@ import { LogOut, User2, Shield, Settings } from 'lucide-react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
-import { USER_API_END_POINT } from '@/utils/constant'
 import { setUser } from '@/redux/authSlice'
 import { toast } from 'sonner'
 import {
@@ -35,7 +34,7 @@ const Navbar = () => {
                 : "Logging out...";
             toast.loading(loadingMessage);
             
-            const res = await axios.get(`${USER_API_END_POINT}/logout`, { withCredentials: true });
+            const res = await axios.get(`${process.env.VITE_API_BASE_URL}/user/logout`, { withCredentials: true });
             
             if (res.data.success) {
                 // Clear user from Redux store
