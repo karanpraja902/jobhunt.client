@@ -9,7 +9,7 @@ import axios from 'axios';
 import { setSingleJob } from '@/redux/jobSlice';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'sonner';
-import { API_BASE_URL } from './config/api.config';
+import { API_BASE_URL } from '../config/api.config';
 
 const JobDescription = () => {
     const {singleJob} = useSelector(store => store.job);

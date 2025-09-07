@@ -10,7 +10,7 @@ import axios from 'axios'
 import { useDispatch, useSelector } from 'react-redux'
 import { setLoading } from '@/redux/authSlice'
 import { Loader2 } from 'lucide-react'
-import { API_BASE_URL } from '../config/api.config';
+import { API_BASE_URL } from '../../config/api.config';
 
 const Signup = () => {
 

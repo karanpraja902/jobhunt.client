@@ -3,7 +3,7 @@ import { setAllAppliedJobs } from "@/redux/jobSlice";
 import axios from "axios"
 import { useEffect } from "react"
 import { useDispatch } from "react-redux"
-import { API_BASE_URL } from './config/api.config';
+import { API_BASE_URL } from '../config/api.config';
 
 const useGetAppliedJobs = () => {
     const dispatch = useDispatch();

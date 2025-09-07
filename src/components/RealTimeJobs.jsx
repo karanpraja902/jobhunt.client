@@ -5,7 +5,7 @@ import { Avatar, AvatarImage } from './ui/avatar';
 import { MapPin, Globe, ExternalLink, TrendingUp, RefreshCw } from 'lucide-react';
 import useGetExternalJobs from '@/hooks/useGetExternalJobs';
 import { Skeleton } from './ui/skeleton';
-import { API_BASE_URL } from './config/api.config';
+import { API_BASE_URL } from '../config/api.config';
 
 
 const RealTimeJobs = () => {

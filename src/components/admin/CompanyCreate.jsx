@@ -10,7 +10,7 @@ import axios from 'axios'
 import { toast } from 'sonner'
 import { useDispatch } from 'react-redux'
 import { setSingleCompany } from '@/redux/companySlice'
-import { API_BASE_URL } from '../config/api.config';
+import { API_BASE_URL } from '../../config/api.config';
 
 const CompanyCreate = () => {
     const navigate = useNavigate();

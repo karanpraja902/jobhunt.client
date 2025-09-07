@@ -7,7 +7,7 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAllApplicants } from '@/redux/applicationSlice';
-import { API_BASE_URL } from '../config/api.config';
+import { API_BASE_URL } from '../../config/api.config';
 
 const Applicants = () => {
     const params = useParams();

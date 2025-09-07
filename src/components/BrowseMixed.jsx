@@ -10,7 +10,7 @@ import { Skeleton } from './ui/skeleton';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import { ExternalLink, Building2 } from 'lucide-react';
-import { API_BASE_URL } from './config/api.config';
+import { API_BASE_URL } from '../config/api.config';
 
 const BrowseMixed = () => {
     const [jobs, setJobs] = useState([]);

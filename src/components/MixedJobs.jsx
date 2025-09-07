@@ -10,7 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '.
 import { Badge } from './ui/badge';
 import { Skeleton } from './ui/skeleton';
 import SafeImage from './ui/safe-image';
-import { API_BASE_URL } from './config/api.config';
+import { API_BASE_URL } from '../config/api.config';
 import { 
     Search, 
     MapPin, 

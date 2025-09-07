@@ -9,7 +9,7 @@ import axios from 'axios'
 
 import { setUser } from '@/redux/authSlice'
 import { toast } from 'sonner'
-import { API_BASE_URL } from '../config/api.config';
+import { API_BASE_URL } from '../../config/api.config';
 import {
     Dialog,
     DialogContent,

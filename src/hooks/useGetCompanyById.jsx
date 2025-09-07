@@ -4,7 +4,7 @@ import { setAllJobs } from '@/redux/jobSlice'
 import axios from 'axios'
 import { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
-import { API_BASE_URL } from './config/api.config';
+import { API_BASE_URL } from '../config/api.config';
 
 const useGetCompanyById = (companyId) => {
     const dispatch = useDispatch();

@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 import { toast } from 'sonner';
 
 import axios from 'axios';
-import { API_BASE_URL } from '../config/api.config';
+import { API_BASE_URL } from '../../config/api.config';
 
 const shortlistingStatus = ["Accepted", "Rejected"];
 
