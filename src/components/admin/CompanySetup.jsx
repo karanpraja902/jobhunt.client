@@ -11,6 +11,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'sonner'
 import { useSelector } from 'react-redux'
 import useGetCompanyById from '@/hooks/useGetCompanyById'
+import { API_BASE_URL } from '../config/api.config';
 
 const CompanySetup = () => {
     const params = useParams();
@@ -47,7 +48,7 @@ const CompanySetup = () => {
         }
         try {
             setLoading(true);
-            const res = await axios.put(`${import.meta.env.VITE_API_BASE_URL}/company/update/${params.id}`, formData, {
+            const res = await axios.put(`${API_BASE_URL}/company/update/${params.id}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 },

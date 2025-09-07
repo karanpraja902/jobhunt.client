@@ -5,6 +5,7 @@ import { Avatar, AvatarImage } from './ui/avatar';
 import { MapPin, Globe, ExternalLink, TrendingUp, RefreshCw } from 'lucide-react';
 import useGetExternalJobs from '@/hooks/useGetExternalJobs';
 import { Skeleton } from './ui/skeleton';
+import { API_BASE_URL } from './config/api.config';
 
 
 const RealTimeJobs = () => {
@@ -15,7 +16,7 @@ const RealTimeJobs = () => {
         setRefreshing(true);
         // Clear cache and refetch
         try {
-            await fetch(`${import.meta.env.VITE_API_BASE_URL}/external-jobs/cache/clear`, {
+            await fetch(`${API_BASE_URL}/external-jobs/cache/clear`, {
                 method: 'DELETE'
             });
             window.location.reload();

@@ -4,8 +4,14 @@ const getApiBaseUrl = () => {
     // Get the environment variable
     let apiUrl = import.meta.env.VITE_API_BASE_URL;
     
+    // Log the raw environment variable for debugging (only in development)
+    if (import.meta.env.DEV) {
+        console.log('Raw VITE_API_BASE_URL:', import.meta.env.VITE_API_BASE_URL);
+        console.log('All env vars:', import.meta.env);
+    }
+    
     // If not set or incorrectly set, use appropriate defaults
-    if (!apiUrl) {
+    if (!apiUrl || apiUrl === 'undefined' || apiUrl === 'null' || apiUrl === '') {
         // Check if we're in development or production
         const isDevelopment = import.meta.env.DEV || window.location.hostname === 'localhost';
         
@@ -16,7 +22,7 @@ const getApiBaseUrl = () => {
             apiUrl = 'https://jobhunt-server-six.vercel.app/api/v1';
         }
         
-        console.warn('VITE_API_BASE_URL not set, using fallback:', apiUrl);
+        console.warn('VITE_API_BASE_URL not set or invalid, using fallback:', apiUrl);
     }
     
     // Ensure the URL is properly formatted

@@ -10,6 +10,7 @@ import { Skeleton } from './ui/skeleton';
 import { Badge } from './ui/badge';
 import { Button } from './ui/button';
 import { ExternalLink, Building2 } from 'lucide-react';
+import { API_BASE_URL } from './config/api.config';
 
 const BrowseMixed = () => {
     const [jobs, setJobs] = useState([]);
@@ -21,7 +22,7 @@ const BrowseMixed = () => {
         const fetchJobs = async () => {
             try {
                 setLoading(true);
-                const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/mixed-jobs/mixed`, {
+                const response = await axios.get(`${API_BASE_URL}/mixed-jobs/mixed`, {
                     params: {
                         keyword: searchedQuery || '',
                         source: 'all',

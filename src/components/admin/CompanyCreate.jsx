@@ -10,6 +10,7 @@ import axios from 'axios'
 import { toast } from 'sonner'
 import { useDispatch } from 'react-redux'
 import { setSingleCompany } from '@/redux/companySlice'
+import { API_BASE_URL } from '../config/api.config';
 
 const CompanyCreate = () => {
     const navigate = useNavigate();
@@ -17,7 +18,7 @@ const CompanyCreate = () => {
     const dispatch = useDispatch();
     const registerNewCompany = async () => {
         try {
-            const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/company/register`, {companyName}, {
+            const res = await axios.post(`${API_BASE_URL}/company/register`, {companyName}, {
                 headers:{
                     'Content-Type':'application/json'
                 },

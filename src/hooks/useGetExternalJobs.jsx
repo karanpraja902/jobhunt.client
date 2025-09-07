@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import { API_BASE_URL } from '../config/api.config';
 
 
 
@@ -15,12 +16,12 @@ const useGetExternalJobs = (type = 'trending') => {
                 setLoading(true);
                 setError(null);
                 
-                let endpoint = `${import.meta.env.VITE_API_BASE_URL}/external-jobs/trending`;
+                let endpoint = `${API_BASE_URL}/external-jobs/trending`;
                 
                 if (type === 'search') {
-                    endpoint = `${import.meta.env.VITE_API_BASE_URL}/external-jobs/search`;
+                    endpoint = `${API_BASE_URL}/external-jobs/search`;
                 } else if (type === 'external') {
-                    endpoint = `${import.meta.env.VITE_API_BASE_URL}/external-jobs/external`;
+                    endpoint = `${API_BASE_URL}/external-jobs/external`;
                 }
                 
                 const res = await axios.get(endpoint);

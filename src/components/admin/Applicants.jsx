@@ -7,6 +7,7 @@ import axios from 'axios'
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { setAllApplicants } from '@/redux/applicationSlice';
+import { API_BASE_URL } from '../config/api.config';
 
 const Applicants = () => {
     const params = useParams();
@@ -16,7 +17,7 @@ const Applicants = () => {
     useEffect(() => {
         const fetchAllApplicants = async () => {
             try {
-                const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/application/${params.id}/applicants`, { withCredentials: true });
+                const res = await axios.get(`${API_BASE_URL}/application/${params.id}/applicants`, { withCredentials: true });
                 dispatch(setAllApplicants(res.data.job));
             } catch (error) {
                 console.log(error);

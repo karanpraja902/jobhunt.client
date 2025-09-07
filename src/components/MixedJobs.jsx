@@ -10,6 +10,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '.
 import { Badge } from './ui/badge';
 import { Skeleton } from './ui/skeleton';
 import SafeImage from './ui/safe-image';
+import { API_BASE_URL } from './config/api.config';
 import { 
     Search, 
     MapPin, 
@@ -45,7 +46,7 @@ const MixedJobs = () => {
     // Debounced search
     const [searchTimeout, setSearchTimeout] = useState(null);
 
-    const MIXED_JOBS_API = `${import.meta.env.VITE_API_BASE_URL}/mixed-jobs`;
+    const MIXED_JOBS_API = `${API_BASE_URL}/mixed-jobs`;
 
     // Fetch mixed jobs
     const fetchMixedJobs = async (resetPage = false) => {

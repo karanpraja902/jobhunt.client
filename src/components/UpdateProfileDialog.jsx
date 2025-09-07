@@ -10,6 +10,7 @@ import axios from 'axios'
 
 import { setUser } from '@/redux/authSlice'
 import { toast } from 'sonner'
+import { API_BASE_URL } from './config/api.config';
 
 const UpdateProfileDialog = ({ open, setOpen }) => {
     const [loading, setLoading] = useState(false);
@@ -47,7 +48,7 @@ const UpdateProfileDialog = ({ open, setOpen }) => {
         }
         try {
             setLoading(true);
-            const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/user/profile/update`, formData, {
+            const res = await axios.post(`${API_BASE_URL}/user/profile/update`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 },

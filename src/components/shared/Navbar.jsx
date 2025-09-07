@@ -9,6 +9,7 @@ import axios from 'axios'
 
 import { setUser } from '@/redux/authSlice'
 import { toast } from 'sonner'
+import { API_BASE_URL } from '../config/api.config';
 import {
     Dialog,
     DialogContent,
@@ -35,7 +36,7 @@ const Navbar = () => {
                 : "Logging out...";
             toast.loading(loadingMessage);
             
-            const res = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/user/logout`, { withCredentials: true });
+            const res = await axios.get(`${API_BASE_URL}/user/logout`, { withCredentials: true });
             
             if (res.data.success) {
                 // Clear user from Redux store

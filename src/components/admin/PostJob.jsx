@@ -11,6 +11,7 @@ import axios from 'axios'
 import { toast } from 'sonner'
 import { useNavigate } from 'react-router-dom'
 import { Loader2 } from 'lucide-react'
+import { API_BASE_URL } from '../config/api.config';
 
 const companyArray = [];
 
@@ -43,7 +44,7 @@ const PostJob = () => {
         e.preventDefault();
         try {
             setLoading(true);
-            const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/job/post`, input,{
+            const res = await axios.post(`${API_BASE_URL}/job/post`, input,{
                 headers:{
                     'Content-Type':'application/json'
                 },

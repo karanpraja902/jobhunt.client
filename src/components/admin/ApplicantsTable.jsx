@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 import { toast } from 'sonner';
 
 import axios from 'axios';
+import { API_BASE_URL } from '../config/api.config';
 
 const shortlistingStatus = ["Accepted", "Rejected"];
 
@@ -16,7 +17,7 @@ const ApplicantsTable = () => {
         console.log('called');
         try {
             axios.defaults.withCredentials = true;
-            const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/application/status/${id}/update`, { status });
+            const res = await axios.post(`${API_BASE_URL}/application/status/${id}/update`, { status });
             console.log(res);
             if (res.data.success) {
                 toast.success(res.data.message);
