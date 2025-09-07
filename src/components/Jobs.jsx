@@ -3,6 +3,7 @@ import Navbar from './shared/Navbar'
 import FilterCard from './FilterCard'
 import Job from './Job';
 import HiringCompanies from './HiringCompanies';
+import CompanyStats from './CompanyStats';
 import { useSelector } from 'react-redux';
 import { motion } from 'framer-motion';
 import { Building2 } from 'lucide-react';
@@ -40,6 +41,9 @@ const Jobs = () => {
         <div>
             <Navbar />
             <div className='max-w-7xl mx-auto mt-5 px-4'>
+                {/* Statistics Section */}
+                <CompanyStats jobs={allJobs} />
+                
                 {/* Companies Section */}
                 <HiringCompanies 
                     jobs={allJobs}
