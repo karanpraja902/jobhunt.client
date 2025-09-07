@@ -5,6 +5,7 @@ import { Avatar, AvatarImage } from './ui/avatar';
 import { MapPin, Globe, ExternalLink, TrendingUp, RefreshCw } from 'lucide-react';
 import useGetExternalJobs from '@/hooks/useGetExternalJobs';
 import { Skeleton } from './ui/skeleton';
+import { VITE_API_BASE_URL } from '@/utils/constant';
 
 const RealTimeJobs = () => {
     const { externalJobs, loading, error } = useGetExternalJobs('trending');
@@ -14,7 +15,7 @@ const RealTimeJobs = () => {
         setRefreshing(true);
         // Clear cache and refetch
         try {
-            await fetch('http://localhost:5000/api/v1/external-jobs/cache/clear', {
+            await fetch(`${VITE_API_BASE_URL}/external-jobs/cache/clear`, {
                 method: 'DELETE'
             });
             window.location.reload();
@@ -118,20 +119,15 @@ const RealTimeJobs = () => {
 
                         {/* Company Info */}
                         <div className='flex items-center gap-3 mb-3'>
-                            {job.company?.logo ? (
-                                <Avatar className="h-10 w-10">
-                                    <AvatarImage 
-                                        src={job.company.logo} 
-                                        alt={job.company.name} 
-                                    />
-                                </Avatar>
-                            ) : (
-                                <div className='h-10 w-10 bg-gray-200 rounded-full flex items-center justify-center'>
-                                    <span className='text-gray-600 font-bold'>
-                                        {job.company?.name?.charAt(0) || 'C'}
-                                    </span>
-                                </div>
-                            )}
+                            <Avatar className="h-10 w-10">
+                                <AvatarImage 
+                                    src={job.company?.logo || "https://via.placeholder.com/40x40/4F46E5/FFFFFF?text=" + (job.company?.name?.charAt(0) || '?')} 
+                                    alt={job.company?.name || 'Company'} 
+                                    onError={(e) => {
+                                        e.target.src = "https://via.placeholder.com/40x40/4F46E5/FFFFFF?text=" + (job.company?.name?.charAt(0) || '?');
+                                    }}
+                                />
+                            </Avatar>
                             <div className='flex-1'>
                                 <h3 className='font-semibold text-sm'>
                                     {job.company?.name || 'Company'}

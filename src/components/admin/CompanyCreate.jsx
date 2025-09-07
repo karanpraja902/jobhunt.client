@@ -5,6 +5,7 @@ import { Input } from '../ui/input'
 import { Button } from '../ui/button'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import { VITE_API_BASE_URL } from '@/utils/constant'
 
 import { toast } from 'sonner'
 import { useDispatch } from 'react-redux'
@@ -16,7 +17,7 @@ const CompanyCreate = () => {
     const dispatch = useDispatch();
     const registerNewCompany = async () => {
         try {
-            const res = await axios.post(`${process.env.VITE_API_BASE_URL}/company/register`, {companyName}, {
+            const res = await axios.post(`${VITE_API_BASE_URL}/company/register`, {companyName}, {
                 headers:{
                     'Content-Type':'application/json'
                 },

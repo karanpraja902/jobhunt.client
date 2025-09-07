@@ -9,6 +9,7 @@ import { Input } from './ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { Badge } from './ui/badge';
 import { Skeleton } from './ui/skeleton';
+import SafeImage from './ui/safe-image';
 import { 
     Search, 
     MapPin, 
@@ -181,15 +182,13 @@ const MixedJobs = () => {
             
             <div className='flex items-center gap-2 my-2'>
                 <div className='p-2 border rounded'>
-                    {job.company?.logo ? (
-                        <img 
-                            src={job.company.logo} 
-                            alt={job.company.name}
-                            className='h-8 w-8 object-contain'
-                        />
-                    ) : (
-                        <Building2 className='h-8 w-8 text-gray-400' />
-                    )}
+                    <SafeImage
+                        src={job.company?.logo}
+                        alt={job.company?.name}
+                        className='h-8 w-8 object-contain'
+                        iconClassName='h-8 w-8 text-gray-400'
+                        fallback='icon'
+                    />
                 </div>
                 <div>
                     <h3 className='font-medium text-lg'>{job.company?.name || 'Company'}</h3>

@@ -6,6 +6,7 @@ import { Button } from '../ui/button'
 import { useSelector } from 'react-redux'
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '../ui/select'
 import axios from 'axios'
+import { VITE_API_BASE_URL } from '@/utils/constant'
 
 import { toast } from 'sonner'
 import { useNavigate } from 'react-router-dom'
@@ -42,7 +43,7 @@ const PostJob = () => {
         e.preventDefault();
         try {
             setLoading(true);
-            const res = await axios.post(`${process.env.VITE_API_BASE_URL}/job/post`, input,{
+            const res = await axios.post(`${VITE_API_BASE_URL}/job/post`, input,{
                 headers:{
                     'Content-Type':'application/json'
                 },

@@ -26,7 +26,13 @@ const Job = ({job}) => {
             <div className='flex items-center gap-2 my-2'>
                 <Button className="p-6" variant="outline" size="icon">
                     <Avatar>
-                        <AvatarImage src={job?.company?.logo} />
+                        <AvatarImage 
+                            src={job?.company?.logo || "https://via.placeholder.com/40x40/4F46E5/FFFFFF?text=" + (job?.company?.name?.charAt(0) || '?')} 
+                            alt={job?.company?.name || 'Company'}
+                            onError={(e) => {
+                                e.target.src = "https://via.placeholder.com/40x40/4F46E5/FFFFFF?text=" + (job?.company?.name?.charAt(0) || '?');
+                            }}
+                        />
                     </Avatar>
                 </Button>
                 <div>
