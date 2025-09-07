@@ -1,14 +1,23 @@
 import React from 'react'
 import { Badge } from './ui/badge'
+import { Avatar, AvatarImage } from './ui/avatar'
 import { useNavigate } from 'react-router-dom'
 
 const LatestJobCards = ({job}) => {
     const navigate = useNavigate();
     return (
         <div onClick={()=> navigate(`/description/${job._id}`)} className='p-5 rounded-md shadow-xl bg-white border border-gray-100 cursor-pointer'>
-            <div>
-                <h1 className='font-medium text-lg'>{job?.company?.name}</h1>
-                <p className='text-sm text-gray-500'>India</p>
+            <div className='flex items-center gap-3 mb-2'>
+                <Avatar className="h-10 w-10">
+                    <AvatarImage 
+                        src={job?.company?.logo || "https://via.placeholder.com/100"} 
+                        alt={job?.company?.name} 
+                    />
+                </Avatar>
+                <div>
+                    <h1 className='font-medium text-lg'>{job?.company?.name || 'Company Name'}</h1>
+                    <p className='text-sm text-gray-500'>{job?.company?.location || job?.location || 'Location'}</p>
+                </div>
             </div>
             <div>
                 <h1 className='font-bold text-lg my-2'>{job?.title}</h1>

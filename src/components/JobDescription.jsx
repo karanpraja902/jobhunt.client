@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Badge } from './ui/badge'
 import { Button } from './ui/button'
+import { Avatar, AvatarImage } from './ui/avatar'
+import { MapPin, Building2, Globe } from 'lucide-react'
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import { APPLICATION_API_END_POINT, JOB_API_END_POINT } from '@/utils/constant';
@@ -52,6 +54,50 @@ const JobDescription = () => {
 
     return (
         <div className='max-w-7xl mx-auto my-10'>
+            {/* Company Information Section */}
+            {singleJob?.company && (
+                <div className='bg-gray-50 p-6 rounded-lg mb-6'>
+                    <div className='flex items-center gap-4'>
+                        <Avatar className="h-16 w-16">
+                            <AvatarImage 
+                                src={singleJob?.company?.logo || "https://via.placeholder.com/150"} 
+                                alt={singleJob?.company?.name} 
+                            />
+                        </Avatar>
+                        <div className='flex-1'>
+                            <h2 className='font-bold text-2xl flex items-center gap-2'>
+                                <Building2 className='h-5 w-5' />
+                                {singleJob?.company?.name}
+                            </h2>
+                            <div className='flex items-center gap-4 mt-2 text-sm text-gray-600'>
+                                {singleJob?.company?.location && (
+                                    <span className='flex items-center gap-1'>
+                                        <MapPin className='h-4 w-4' />
+                                        {singleJob?.company?.location}
+                                    </span>
+                                )}
+                                {singleJob?.company?.website && (
+                                    <a 
+                                        href={singleJob?.company?.website} 
+                                        target="_blank" 
+                                        rel="noopener noreferrer"
+                                        className='flex items-center gap-1 text-blue-600 hover:text-blue-700'
+                                    >
+                                        <Globe className='h-4 w-4' />
+                                        Visit Website
+                                    </a>
+                                )}
+                            </div>
+                            {singleJob?.company?.description && (
+                                <p className='text-sm text-gray-600 mt-2'>
+                                    {singleJob?.company?.description}
+                                </p>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            )}
+            
             <div className='flex items-center justify-between'>
                 <div>
                     <h1 className='font-bold text-xl'>{singleJob?.title}</h1>
